@@ -62,16 +62,13 @@ def sampleResponse(input_text):
             return str("Nulla di nuovo")
 
 
-if userMessage in ("hwupgrade", "Hwupgrade", "Tecnologia", "tecnologia"):
+    if userMessage in ("hwupgrade", "Hwupgrade", "Tecnologia", "tecnologia"):
         import feedparser
         NewsFeed = feedparser.parse("https://feeds.hwupgrade.it/rss_hwup.xml")
-entry = NewsFeed.entries[1]
-if entry.summary != " ":
-    return str(entry.link)
-else:
-return str("Nulla di nuovo")
-
-
-
+        entry = NewsFeed.entries[1]
+        if entry.summary != " ":
+            return str(entry.link)
+        else:
+            return str("Nulla di nuovo")
 
     return "Non ho capito."
