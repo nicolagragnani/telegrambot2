@@ -2,7 +2,7 @@ import constants as keys
 from telegram.ext import *
 import responses as r
 import os
-PORT = int(os.environ.get('PORT', 5000))
+PORT = int(os.environ.get('PORT', 8443))
 
 print("I am ALIVE...")
 
