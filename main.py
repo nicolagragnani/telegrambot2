@@ -50,7 +50,11 @@ def main():
 
 
     # Run the bot
-    updater.start_polling()
+    #updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=keys.API_Token,
+                          webhook_url= 'https://gragnabot.herokuapp.com/' + keys.API_Token)
 
     updater.idle()
 
