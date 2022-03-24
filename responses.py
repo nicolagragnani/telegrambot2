@@ -42,6 +42,18 @@ def sampleResponse(input_text):
         else:
             return str("Nulla di nuovo")
 
+    if userMessage in ("news audio", "news podcast"):
+        mport
+        feedparser
+        NewsFeed = feedparser.parse("http://www.listennotes.com/it/podcast/in-4-minuti-the-vision-n1GX50uJ_mk/#")
+        entry = NewsFeed.entries[1]
+        if entry.summary != " ":
+            return str(entry.link)
+
+        else:
+            return str("Nulla di nuovo")
+
+
     if userMessage in ("juve", "Juve", "Juventus", "juventus"):
         import feedparser
         NewsFeed = feedparser.parse("https://www.tuttojuve.com/rss")
