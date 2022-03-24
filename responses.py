@@ -19,7 +19,7 @@ def sampleResponse(input_text):
     if userMessage in ("gazzetta", "Gazzetta", "sport", "Sport"):
         import feedparser
         NewsFeed = feedparser.parse("https://www.gazzetta.it/rss/home.xml")
-        entry = NewsFeed.entries[1]
+        entry = NewsFeed.entries[0]
         if entry.summary != " ":
             return str(entry.link)
 
@@ -35,7 +35,7 @@ def sampleResponse(input_text):
     if userMessage in ("news", "News", "Notizie", "notizie"):
         import feedparser
         NewsFeed = feedparser.parse("http://www.ansa.it/sito/notizie/topnews/topnews_rss.xml")
-        entry = NewsFeed.entries[1]
+        entry = NewsFeed.entries[0]
         if entry.summary != " ":
             return str(entry.link)
 
@@ -56,7 +56,7 @@ def sampleResponse(input_text):
     if userMessage in ("juve", "Juve", "Juventus", "juventus"):
         import feedparser
         NewsFeed = feedparser.parse("https://www.tuttojuve.com/rss")
-        entry = NewsFeed.entries[1]
+        entry = NewsFeed.entries[0]
         if entry.summary != " ":
             return str(entry.link)
 
@@ -66,7 +66,7 @@ def sampleResponse(input_text):
     if userMessage in ("apple", "Apple", "Iphone", "iphone"):
         import feedparser
         NewsFeed = feedparser.parse("https://feeds.feedburner.com/iphoneitalia")
-        entry = NewsFeed.entries[1]
+        entry = NewsFeed.entries[0]
         if entry.summary != " ":
             return str(entry.link)
         else:
@@ -76,7 +76,7 @@ def sampleResponse(input_text):
     if userMessage in ("hwupgrade", "Hwupgrade", "Tecnologia", "tecnologia"):
         import feedparser
         NewsFeed = feedparser.parse("https://feeds.hwupgrade.it/rss_hwup.xml")
-        entry = NewsFeed.entries[1]
+        entry = NewsFeed.entries[0]
         if entry.summary != " ":
             return str(entry.link)
         else:
