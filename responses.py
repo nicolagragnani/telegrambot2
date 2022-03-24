@@ -45,7 +45,7 @@ def sampleResponse(input_text):
     if userMessage in ("news audio", "news podcast"):
         mport
         feedparser
-        NewsFeed = feedparser.parse("https://feed.transistor.fm/thevisionbriefing")
+        NewsFeed = feedparser.parse("https://feeds.transistor.fm/thevisionbriefing")
         entry = NewsFeed.entries[1]
         if entry.summary != " ":
             return str(entry.link)
