@@ -26,6 +26,7 @@ def handleMessage(update, context):
     sql = """INSERT INTO test_log(id_chat, request, response)
                  VALUES(%s, %s, %s) RETURNING id;"""
     user = Filters.user
+    print('user')
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         #print('conn ok')
