@@ -20,7 +20,7 @@ def helpCommand(update, context):
 def handleMessage(update, context):
 
     text = str(update.message.text).lower()
-    if pdate.message.from_user.username != None:
+    if update.message.from_user.username != None:
         user = 'username : ' + update.message.from_user.username
     else:
         user = 'first_name : ' + update.message.from_user.first_name
