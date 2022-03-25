@@ -24,13 +24,14 @@ def handleMessage(update, context):
     response = r.sampleResponse(text)
     #insert log
     sql = """INSERT INTO test_log(id_chat, request, response)
-                 VALUES(%s) RETURNING id;"""
+                 VALUES(%s, %s, %s) RETURNING id;"""
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         print('conn ok')
         cur = conn.cursor()
         print('cur ok')
         cur.execute(sql, ('test', text, response))
+        print('execute ok')
         id_log = cur.fetchone()[0]
         conn.commit()
         cur.close()
