@@ -2,7 +2,9 @@ import constants as keys
 from telegram.ext import *
 import responses as r
 import os
+import psycopg2
 PORT = int(os.environ.get('PORT', 8443))
+DATABASE_URL = os.environ['postgres://cxdnesywplbbzx:3499dfbb032bb6cbafa0974a8c3aa8f622ac0c4ba314e389dc5ea43ac178448d@ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/db3h7lnncai9e4']
 
 print("I am ALIVE...")
 
@@ -17,11 +19,24 @@ def helpCommand(update, context):
 def handleMessage(update, context):
 
     text = str(update.message.text).lower()
-
-
-
     # Bot response
     response = r.sampleResponse(text)
+    insert log
+    sql = """INSERT INTO test_log(id_chat, request, response)
+                 VALUES(%s) RETURNING id;"""
+    try:
+        conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+        cur = conn.cursor()
+        cur.execute(sql, ('test', text, r.sampleResponse(text)))
+        id_log = cur.fetchone()[0]
+        conn.commit()
+        cur.close()
+        print("record log inserito. id = ", id_log)
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
 
     update.message.reply_text(response)
 
@@ -47,6 +62,10 @@ def main():
     dp.add_handler(MessageHandler(Filters.text, handleMessage))
 
     dp.add_error_handler(error)
+
+
+
+
 
 
     # Run the bot
