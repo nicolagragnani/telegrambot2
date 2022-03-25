@@ -21,7 +21,7 @@ def handleMessage(update, context):
     text = str(update.message.text).lower()
     # Bot response
     response = r.sampleResponse(text)
-    insert log
+    #insert log
     sql = """INSERT INTO test_log(id_chat, request, response)
                  VALUES(%s) RETURNING id;"""
     try:
