@@ -20,7 +20,10 @@ def helpCommand(update, context):
 def handleMessage(update, context):
 
     text = str(update.message.text).lower()
-    user = update.message.from_user.username
+    if pdate.message.from_user.username != None:
+        user = 'username : ' + update.message.from_user.username
+    else:
+        user = 'first_name : ' + update.message.from_user.first_name
     # Bot response
     response = r.sampleResponse(text)
     #insert log
