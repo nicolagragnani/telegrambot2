@@ -27,7 +27,9 @@ def handleMessage(update, context):
                  VALUES(%s) RETURNING id;"""
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+        print('conn ok')
         cur = conn.cursor()
+        print('cur ok')
         cur.execute(sql, ('test', text, response))
         id_log = cur.fetchone()[0]
         conn.commit()
