@@ -28,7 +28,7 @@ def handleMessage(update, context):
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         cur = conn.cursor()
-        cur.execute(sql, ('test', text, r.sampleResponse(text)))
+        cur.execute(sql, ('test', text, response)
         id_log = cur.fetchone()[0]
         conn.commit()
         cur.close()
