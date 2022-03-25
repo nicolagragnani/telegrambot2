@@ -25,12 +25,14 @@ def handleMessage(update, context):
     #insert log
     sql = """INSERT INTO test_log(id_chat, request, response)
                  VALUES(%s, %s, %s) RETURNING id;"""
+    user = Filters.user
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         #print('conn ok')
         cur = conn.cursor()
         #print('cur ok')
-        cur.execute(sql, ('test', text, response))
+        #cur.execute(sql, ('test', text, response))
+        cur.execute(sql, (user, text, response))
         #print('execute ok')
         id_log = cur.fetchone()[0]
         #print('id_log ok')
@@ -62,17 +64,10 @@ def main():
     dp.add_handler(CommandHandler("start", startCommand))
     dp.add_handler(CommandHandler("help", helpCommand))
 
-
-
-
     # Messages
     dp.add_handler(MessageHandler(Filters.text, handleMessage))
 
     dp.add_error_handler(error)
-
-
-
-
 
 
     # Run the bot
