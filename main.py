@@ -4,7 +4,8 @@ import responses as r
 import os
 import psycopg2
 PORT = int(os.environ.get('PORT', 8443))
-DATABASE_URL = os.environ['postgres://cxdnesywplbbzx:3499dfbb032bb6cbafa0974a8c3aa8f622ac0c4ba314e389dc5ea43ac178448d@ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/db3h7lnncai9e4']
+#DATABASE_URL = os.environ['postgres://cxdnesywplbbzx:3499dfbb032bb6cbafa0974a8c3aa8f622ac0c4ba314e389dc5ea43ac178448d@ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/db3h7lnncai9e4']
+DATABASE_URL = os.environ['DATABASE_URL']
 
 print("I am ALIVE...")
 
