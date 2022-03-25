@@ -33,8 +33,11 @@ def handleMessage(update, context):
         cur.execute(sql, ('test', text, response))
         print('execute ok')
         id_log = cur.fetchone()[0]
+        print('id_log ok')
         conn.commit()
+        print('commit ok')
         cur.close()
+        print('close ok')
         print("record log inserito. id = ", id_log)
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
