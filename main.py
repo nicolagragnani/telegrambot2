@@ -27,17 +27,17 @@ def handleMessage(update, context):
                  VALUES(%s, %s, %s) RETURNING id;"""
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-        print('conn ok')
+        #print('conn ok')
         cur = conn.cursor()
-        print('cur ok')
+        #print('cur ok')
         cur.execute(sql, ('test', text, response))
-        print('execute ok')
+        #print('execute ok')
         id_log = cur.fetchone()[0]
-        print('id_log ok')
+        #print('id_log ok')
         conn.commit()
-        print('commit ok')
+        #print('commit ok')
         cur.close()
-        print('close ok')
+        #print('close ok')
         print("record log inserito. id = ", id_log)
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
