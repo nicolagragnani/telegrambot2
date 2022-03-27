@@ -16,7 +16,7 @@ def sampleResponse(input_text):
     if userMessage in ("chi sei?", "chi sei"):
         return "Sono il tuo bot!  😄"
 
-    if userMessage in ("gazzetta", "sport":
+    if userMessage in ("gazzetta", "sport"):
         import feedparser
         NewsFeed = feedparser.parse("https://www.gazzetta.it/rss/home.xml")
         entry = NewsFeed.entries[0]

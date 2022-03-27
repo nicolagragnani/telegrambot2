@@ -1,11 +1,11 @@
 import constants as keys
 from telegram.ext import *
 import responses as r
-import logging as l
+import logging_bot as lg
 import os
-#import psycopg2
+    #import psycopg2
 PORT = int(os.environ.get('PORT', 8443))
-#DATABASE_URL = os.environ['DATABASE_URL']
+    #DATABASE_URL = os.environ['DATABASE_URL']
 
 print("I am ALIVE...")
 
@@ -27,7 +27,7 @@ def handleMessage(update, context):
     # Bot response
     response = r.sampleResponse(text)
     #write_log
-    wlog = l.writeLog(user, text, response)
+    wlog = lg.writeLog(user, text, response)
 
     update.message.reply_text(response)
 
