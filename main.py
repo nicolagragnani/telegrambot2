@@ -12,7 +12,6 @@ print("I am ALIVE...")
 
 def startCommand(update, context):
     update.message.reply_text('Digita qualcosa per iniziare')
-    #message.send_message()
 
 def helpCommand(update, context):
     update.message.reply_text('Aiuto??? ... Devo chiamare i carabinieri?')
