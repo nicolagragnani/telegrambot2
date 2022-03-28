@@ -45,13 +45,13 @@ def importa_lezione(input_df):
 
         input_df = input_df.reset_index()
         # Insert DataFrame recrds one by one.
-        for i, row in input_df.iterrows():
+        for i, row2 in input_df.iterrows():
 
-            print(row)
-            sql = "INSERT INTO lezione_ale (" + cols + ") VALUES (" + "%s," * (len(cols) - 1) + "%s)"
+            print(row2)
+            sql = "INSERT INTO lezione_ale (" + cols + ") VALUES (" + "%s," * (len(row2) - 1) + "%s)"
 
             print(sql)
-            cur.execute(sql, tuple(row))
+            cur.execute(sql, tuple(row2))
             conn.commit()
         cur.close()
         print("record inseriti")
