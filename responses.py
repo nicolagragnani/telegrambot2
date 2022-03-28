@@ -87,12 +87,14 @@ def sampleResponse(input_text):
 
         print("provo a caricare uno foglio di calcolo da drive")
         googleSheetId = '1G2R4oJ0pRCpRBrvGSyFs4DglUxclzlHki1rnLxzEXTY'
+        print(googleSheetId)
         worksheetName = 'Foglio1'
+        print(worksheetName)
         URL = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
             googleSheetId,
             worksheetName
         )
-
+        print(url)
         df = pd.read_csv(URL)
         print(df)
         return ("letto")
