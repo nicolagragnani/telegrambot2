@@ -96,7 +96,14 @@ def sampleResponse(input_text):
             worksheetName
         )
         print(URL)
-        df = pd.read_csv(URL, on_bad_lines='skip')
+        temp_lines = URL.readline() + '\n' + URL.readline()
+        dialect = csv.Sniffer().sniff(temp_lines, delimiters=';,')
+
+        # remember to go back to the start of the file for the next time it's read
+        URL.seek(0)
+
+        df = pd.read_csv(URL, sep=dialect.delimiter)
+        #df = pd.read_csv(URL, on_bad_lines='skip')
         print(df)
         return ("letto")
 
