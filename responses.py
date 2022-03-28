@@ -83,14 +83,18 @@ def sampleResponse(input_text):
             return str("Nulla di nuovo")
 
     if userMessage in ("carica lezione"):
-        print("provo a caricare uno foglio di calcolo da drive")
-        #1wKHi17BEEkTiHOtzvzeiJru_UCldtv4rYYnON2DusRA
         import pandas as pd
-        sheet_id = “1wKHi17BEEkTiHOtzvzeiJru_UCldtv4rYYnON2DusRA"
-        sheet_name = “Foglio1”
-        url = f”https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
-        pd.read_csv(url)
-        print(pd)
+
+        print("provo a caricare uno foglio di calcolo da drive")
+        googleSheetId = '1wKHi17BEEkTiHOtzvzeiJru_UCldtv4rYYnON2DusRA'
+        worksheetName = 'Foglio1'
+        URL = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
+            googleSheetId,
+            worksheetName
+        )
+
+        df = pandas.read_csv(URL)
+        print(df)
         return ("letto")
 
     return "Non ho capito."
