@@ -98,7 +98,7 @@ def sampleResponse(input_text):
         #print(URL)
         df = pd.read_csv(URL, sep='\t')
         #print(df)
-        sql1 = lez.cancella_lezione;
+        sql1 = lez.cancella_lezione();
         sql2 = lez.importa_lezione(df);
 
 
