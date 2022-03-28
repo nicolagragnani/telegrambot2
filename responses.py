@@ -93,7 +93,7 @@ def sampleResponse(input_text):
             worksheetName
         )
 
-        df = pandas.read_csv(URL)
+        df = pd.read_csv(URL)
         print(df)
         return ("letto")
 
