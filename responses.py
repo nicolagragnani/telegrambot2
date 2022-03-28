@@ -94,7 +94,7 @@ def sampleResponse(input_text):
             googleSheetId,
             worksheetName
         )
-        print(url)
+        print(URL)
         df = pd.read_csv(URL)
         print(df)
         return ("letto")
