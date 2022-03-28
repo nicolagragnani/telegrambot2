@@ -96,7 +96,7 @@ def sampleResponse(input_text):
             worksheetName
         )
         print(URL)
-        df = pd.read_csv(URL)
+        df = pd.read_csv(URL, on_bad_lines='skip')
         print(df)
         return ("letto")
 
