@@ -97,7 +97,7 @@ def sampleResponse(input_text):
         )
         print(URL)
         #temp_lines = URL.readline() + '\n' + URL.readline()
-        dialect = csv.Sniffer().sniff(temp_lines, delimiters=';,')
+        #dialect = csv.Sniffer().sniff(temp_lines, delimiters=';,')
         # remember to go back to the start of the file for the next time it's read
         #URL.seek(0)
         #df = pd.read_csv(URL, sep=dialect.delimiter)
