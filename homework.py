@@ -6,6 +6,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 def cancella_lezione():
 
     sql = """delete from lezione_ale;"""
+    print(sql)
     #print(username)
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
@@ -27,6 +28,7 @@ def cancella_lezione():
 def importa_lezione(input_df):
 
     sql = """insert into lezione_ale;"""
+    print(sql)
     #print(username)
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
