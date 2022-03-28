@@ -31,7 +31,7 @@ def importa_lezione(input_df):
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         cur = conn.cursor()
-        inputf_df.to_sql('lezione_ale', conn, if_exists='append', index=False)
+        input_df.to_sql('lezione_ale', conn, if_exists='append', index=False)
         #cur.execute(sql)
         #id_log = cur.fetchone()[0]
         conn.commit()
