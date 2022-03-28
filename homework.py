@@ -39,7 +39,7 @@ def importa_lezione(input_df):
         # creating column list for insertion
         cols = "`,`".join([str(i) for i in input_df.columns.tolist()])
         print(cols)
-        input_df = input_df.reset_index()
+        #input_df = input_df.reset_index()
         for i, row in input_df.iterrows():
             print(i, " - ", row)
 
