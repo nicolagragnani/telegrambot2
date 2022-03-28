@@ -39,15 +39,19 @@ def importa_lezione(input_df):
         # creating column list for insertion
         cols = "`,`".join([str(i) for i in input_df.columns.tolist()])
         print(cols)
+        for i, row in input_df.iterrows():
+            print(i, row)
+
+
         # Insert DataFrame recrds one by one.
         for i, row in input_df.iterrows():
-            if i > 0:
-                print(row)
-                sql = "INSERT INTO lezione_ale (" + cols + ") VALUES (" + "%s," * (len(row) - 1) + "%s)"
 
-                print(sql)
-                cur.execute(sql, tuple(row))
-                conn.commit()
+            print(row)
+            sql = "INSERT INTO lezione_ale (" + cols + ") VALUES (" + "%s," * (len(row) - 1) + "%s)"
+
+            print(sql)
+            cur.execute(sql, tuple(row))
+            conn.commit()
         cur.close()
         print("record inseriti")
     except (Exception, psycopg2.DatabaseError) as error:
