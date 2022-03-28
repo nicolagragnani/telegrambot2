@@ -33,9 +33,17 @@ def importa_lezione(input_df):
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         cur = conn.cursor()
-        input_df.to_sql('lezione_ale', conn, if_exists='append', index=False)
+        #input_df.to_sql('lezione_ale', conn, if_exists='append', index=False)
         #cur.execute(sql)
         #id_log = cur.fetchone()[0]
+        # creating column list for insertion
+        cols = "`,`".join([str(i) for i in input_df.columns.tolist()])
+        print(cols)
+        # Insert DataFrame recrds one by one.
+        for i, row in input_df.iterrows():
+            sql = "INSERT INTO `LEZIONE_ALE` (`" + cols + "`) VALUES (" + "%s," * (len(row) - 1) + "%s)"
+            print(sql)
+            cur.execute(sql, tuple(row))
         conn.commit()
         cur.close()
         print("record inseriti")
