@@ -86,8 +86,9 @@ def sampleResponse(input_text):
         import pandas as pd
 
         print("provo a caricare uno foglio di calcolo da drive")
-        googleSheetId = '1G2R4oJ0pRCpRBrvGSyFs4DglUxclzlHki1rnLxzEXTY'
-        #googleSheetId = '1wKHi17BEEkTiHOtzvzeiJru_UCldtv4rYYnON2DusRA'
+        #googleSheetId = '1G2R4oJ0pRCpRBrvGSyFs4DglUxclzlHki1rnLxzEXTY' lezione old
+        #googleSheetId = '1wKHi17BEEkTiHOtzvzeiJru_UCldtv4rYYnON2DusRA' ricevimento
+        googleSheetId = '1Xf4kelhoKtDt5vEKMOiYJeCtf95mD4dpaRIjqPFYdjI'
         print(googleSheetId)
         worksheetName = 'Foglio1'
         print(worksheetName)
@@ -96,12 +97,6 @@ def sampleResponse(input_text):
             worksheetName
         )
         print(URL)
-        #temp_lines = URL.readline() + '\n' + URL.readline()
-        #dialect = csv.Sniffer().sniff(temp_lines, delimiters=';,')
-        # remember to go back to the start of the file for the next time it's read
-        #URL.seek(0)
-        #df = pd.read_csv(URL, sep=dialect.delimiter)
-        #df = pd.read_csv(URL, on_bad_lines='skip')
         df = pd.read_csv(URL, sep='\t')
         print(df)
         return ("letto")
