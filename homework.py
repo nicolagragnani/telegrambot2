@@ -37,6 +37,7 @@ def importa_lezione(input_df):
         #cur.execute(sql)
         #id_log = cur.fetchone()[0]
         # creating column list for insertion
+        input_df2 = input_df
         cols = "`,`".join([str(i) for i in input_df.columns.tolist()])
         print(cols)
         #input_df = input_df.reset_index()
@@ -45,7 +46,7 @@ def importa_lezione(input_df):
 
         input_df = input_df.reset_index()
         # Insert DataFrame recrds one by one.
-        for i, row2 in input_df.iterrows():
+        for i, row2 in input_df2.iterrows():
 
             print(row2)
             sql = "INSERT INTO lezione_ale (" + cols + ") VALUES (" + "%s," * (len(row2) - 1) + "%s)"
