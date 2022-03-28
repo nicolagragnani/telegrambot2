@@ -52,6 +52,7 @@ def importa_lezione(input_df):
             sql = "INSERT INTO lezione_ale (" + cols + ") VALUES (" + "%s," * (len(row) - 1) + "%s)"
 
             print(sql)
+            print(tuple(row2))
             cur.execute(sql, tuple(row2))
             conn.commit()
         cur.close()
