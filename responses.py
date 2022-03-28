@@ -86,7 +86,7 @@ def sampleResponse(input_text):
         import pandas as pd
 
         print("provo a caricare uno foglio di calcolo da drive")
-        googleSheetId = '1wKHi17BEEkTiHOtzvzeiJru_UCldtv4rYYnON2DusRA'
+        googleSheetId = '1G2R4oJ0pRCpRBrvGSyFs4DglUxclzlHki1rnLxzEXTY'
         worksheetName = 'Foglio1'
         URL = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
             googleSheetId,
