@@ -1,4 +1,5 @@
 from datetime import datetime
+import homework as lez
 
 def sampleResponse(input_text):
 
@@ -85,20 +86,22 @@ def sampleResponse(input_text):
     if userMessage in ("carica lezione"):
         import pandas as pd
 
-        print("provo a caricare uno foglio di calcolo da drive")
-        #googleSheetId = '1G2R4oJ0pRCpRBrvGSyFs4DglUxclzlHki1rnLxzEXTY' lezione old
-        #googleSheetId = '1wKHi17BEEkTiHOtzvzeiJru_UCldtv4rYYnON2DusRA' ricevimento
+        #print("provo a caricare uno foglio di calcolo da drive")
         googleSheetId = '1Xf4kelhoKtDt5vEKMOiYJeCtf95mD4dpaRIjqPFYdjI'
-        print(googleSheetId)
+        #print(googleSheetId)
         worksheetName = 'Foglio1'
-        print(worksheetName)
+        #print(worksheetName)
         URL = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
             googleSheetId,
             worksheetName
         )
-        print(URL)
+        #print(URL)
         df = pd.read_csv(URL, sep='\t')
-        print(df)
+        #print(df)
+        sql1 = lez.cancella_lezione;
+        sql2 = lez.importa_lezione(df);
+
+
         return ("letto")
 
     return "Non ho capito."

@@ -7,7 +7,7 @@ def writeLog(username, input_text, reply):
 
     sql = """INSERT INTO test_log(id_chat, request, response)
                  VALUES(%s, %s, %s) RETURNING id;"""
-    print(username)
+    #print(username)
     try:
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         cur = conn.cursor()
