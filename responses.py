@@ -86,7 +86,8 @@ def sampleResponse(input_text):
         import pandas as pd
 
         print("provo a caricare uno foglio di calcolo da drive")
-        googleSheetId = '1G2R4oJ0pRCpRBrvGSyFs4DglUxclzlHki1rnLxzEXTY'
+        #googleSheetId = '1G2R4oJ0pRCpRBrvGSyFs4DglUxclzlHki1rnLxzEXTY'
+        googleSheetId = '1wKHi17BEEkTiHOtzvzeiJru_UCldtv4rYYnON2DusRA'
         print(googleSheetId)
         worksheetName = 'Foglio1'
         print(worksheetName)
