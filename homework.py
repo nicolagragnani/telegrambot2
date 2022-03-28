@@ -41,7 +41,9 @@ def importa_lezione(input_df):
         print(cols)
         # Insert DataFrame recrds one by one.
         for i, row in input_df.iterrows():
-            sql = "INSERT INTO `LEZIONE_ALE` (`" + cols + "`) VALUES (" + "%s," * (len(row) - 1) + "%s)"
+            print(row)
+            sql = "INSERT INTO `lezione_ale` (`" + cols + "`) VALUES (" + "%s," * (len(row) - 1) + "%s)"
+
             print(sql)
             cur.execute(sql, tuple(row))
         conn.commit()
