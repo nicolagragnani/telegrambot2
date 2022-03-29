@@ -29,7 +29,7 @@ def importa_lezione(input_df):
 
     sql = """insert into lezione_ale;"""
     print(sql)
-    print("stampo di nuovo il dataframe"")
+    print("stampo di nuovo il dataframe")
     print(input_df)
     #print(username)
     try:
